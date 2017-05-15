@@ -1,0 +1,21 @@
+<h4>Loan list</h4>
+<app-add-loan></app-add-loan>
+<div class="row">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <td>Id</td>
+        <th>UserId</th>
+        <th>BookId</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let loan of loans">
+        <td>{{loan.id}}</td>
+        <td>{{loan. userId}}</td>
+        <td>{{loan.bookId}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

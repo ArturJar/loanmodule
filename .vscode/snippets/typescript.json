@@ -1,0 +1,150 @@
+{
+  "component": {
+    "prefix": "meet-component",
+    "body": [
+      "import { Component, OnInit } from '@angular/core';",
+      "",
+      "@Component({",
+      "   selector: 'app-contact-data',",
+      "   template: `some html`",
+      "})",
+      "",
+      "export class ContactDataComponent {",
+      "}"
+    ],
+    "description": "Adds component structure"
+  },
+  "mock user": {
+    "prefix": "meet-mock-user",
+    "body": [
+      "users: User[] = [",
+      "{ id: 1, login: 'gabi89@o2.pl', name: 'Gabriel    Hampton' },",
+      "{ id: 2, login: 'moski_kiski@tlen.pl', name: 'Moses    Massey' },",
+      "{ id: 3, login: 'perl-harbor12@wp.pl', name: 'Pearl    Ramirez' },",
+      "{ id: 4, login: 'marek@marek.com', name: 'Mark    Walsh' },",
+      "{ id: 5, login: 'micz-z-mody-na-sukcez@aaa.pl', name: 'Mitchell    Carter' }",
+      "];"
+    ],
+    "description": "Adds mock user function"
+  },
+  "selectUser function": {
+    "prefix": "meet-select-user-function",
+    "body": [
+      "selectUser(user: User) {",
+      "if (this.selectedUser && user.id === this.selectedUser.id) {",
+      "this.selectedUser = undefined;",
+      "} else {",
+      "this.selectedUser = user;",
+      "}",
+      "}"
+    ],
+    "description": "Adds selectUser function"
+  },
+  "add user handle function": {
+    "prefix": "meet-add-user-handle-function",
+    "body": [
+      "addUserHandle(user: User) {",
+      "user.id = Enumerable.from(this.users).max(item => item.id) + 1;",
+      "this.users.push(user);",
+      "}"
+    ],
+    "description": "Adds user handle function"
+  },
+  "add user with service function": {
+    "prefix": "meet-add-with-service-function",
+    "body": [
+      "this.userService.create(this.login, this.name)",
+      ".then(user => this.addUserHandler.emit(user));"
+    ],
+    "description": "Adds add user with service function"
+  },
+  "add user function": {
+    "prefix": "meet-add-user-function",
+    "body": [
+      "add() {",
+      "let user = new User();",
+      "user.login = this.login;",
+      "user.name = this.name;",
+      "this.addUserHandler.emit(user);",
+      "this.clearUserData();",
+      "}",
+      "clearUserData() {",
+      "this.login = undefined;",
+      "this.name = undefined;",
+      "}"
+    ],
+    "description": "Adds add user function"
+  },
+  "service structure": {
+    "prefix": "meet-service-structure",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import * as Enumerable from 'linq';",
+      "",
+      "import { User } from './user';",
+      "import { USERS } from './user.mock';",
+      "",
+      "@Injectable()",
+      "export class UserService {",
+      "",
+      "constructor() { }",
+      "",
+      "getUsers() {",
+      "",
+      "}",
+      "",
+      "getUsersSlowly() {",
+      "",
+      "}",
+      "",
+      "create(login: string, name: string) {",
+      "",
+      "}",
+      "}",
+      ""
+    ],
+    "description": "Adds service structure"
+  },
+  "getUsersSlowly function body": {
+    "prefix": "meet-get-users-slowly-function-body",
+    "body": [
+      "return new Promise(resolve => {",
+      "setTimeout(() => resolve(this.getUsers()), 2000);",
+      "});"
+    ],
+    "description": "Adds getUsersSlowly function body"
+  },
+  "create user function": {
+    "prefix": "meet-create-user-function-body",
+    "body": [
+      "let enumerableUsers = Enumerable.from(USERS);",
+      "let id = enumerableUsers.any() ? Enumerable.from(USERS).max(item => item.id) + 1 : 0;",
+      "USERS.push({ id, login, name });",
+      "return Promise.resolve(Enumerable.from(USERS).last());"
+    ],
+    "description": "Adds create user function body"
+  },
+  "delete user function": {
+    "prefix": "meet-delete-user-function",
+    "body": [
+      "delete(userId: number): Promise<User[]> {",
+      "let userToDelete = Enumerable.from(USERS).where(user => user.id === userId).firstOrDefault();",
+      "USERS.splice(USERS.indexOf(userToDelete), 1);",
+      "return Promise.resolve(USERS);",
+      "}"
+    ],
+    "description": "Adds delete user function"
+  },
+  "user details delete function": {
+    "prefix": "meet-user-details-delete-function",
+    "body": [
+      "delete(userId: number): void{",
+      "this.userService.delete(userId)",
+      ".then(users =>{",
+      "this.deleteUserHandler.emit();",
+      "});",
+      "}"
+    ],
+    "description": "Adds user details delete function"
+  }
+}

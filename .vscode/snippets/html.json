@@ -1,0 +1,215 @@
+{
+  "book list": {
+    "prefix": "meet-book-list",
+    "body": [
+      "<h4>Book list</h4>",
+      "<div class=\"row\">",
+      "<table class=\"table table-bordered\">",
+      "<thead>",
+      "<tr>",
+      "<td>Id</td>",
+      "<th>Title</th>",
+      "<th>Author</th>",
+      "<th>IdentificationNumber</th>",
+      "</tr>",
+      "</thead>",
+      "<tbody>",
+      "<tr *ngFor=\"let book of books\">",
+      "<td>{{book.id}}</td>",
+      "<td>{{book.title}}</td>",
+      "<td>{{book.author}}</td>",
+      "<td>{{book.identificationNumber}}</td>",
+      "</tr>",
+      "</tbody>",
+      "</table>",
+      "</div>"
+    ],
+    "description": "Adds html book list structure"
+  },
+  "book details": {
+    "prefix": "meet-book-details",
+    "body": [
+      "<div class=\"row\">",
+      "<div class=\"col-md-6\">",
+      "<div class=\"panel panel-primary\">",
+      "<div class=\"panel-heading\">{{book?.title}} details!</div>",
+      "<div class=\"panel-body\">",
+      "<div>",
+      "<label>Title: </label> {{book?.title}}",
+      "</div>",
+      "<div>",
+      "<label>Author: </label> {{book?.author}}",
+      "</div>",
+      "<div>",
+      "<label>Identification Number: </label> {{book?.identificationNumber}}",
+      "</div>",
+      "<button (click)=\"goBack()\">Back</button>",
+      "</div>",
+      "</div>",
+      "</div>",
+      "</div>"
+    ],
+    "description": "Adds book details html structure"
+  },
+  "nav bar": {
+    "prefix": "meet-nav-bar",
+    "body": [
+      "<nav class=\"navbar navbar-default\">",
+      "<div class=\"container-fluid\">",
+      "<div class=\"navbar-header\">",
+      "<a class=\"navbar-brand\" href=\"#\">Booktive!</a>",
+      "</div>",
+      "<div id=\"navbar\" class=\"navbar-collapse collapse\">",
+      "<ul class=\"nav navbar-nav\">",
+      "<li class=\"active\"><a href=\"#\">Users</a></li>",
+      "<li><a href=\"#\">Books</a></li>",
+      "</ul>",
+      "</div>",
+      "</div>",
+      "</nav>"
+    ],
+    "description": "Adds nav bar html structure"
+  },
+  "basic binding": {
+    "prefix": "meet-basic-binding",
+    "body": [
+      "<p>Imię i nazwisko:{{name}} {{surname}}</p> ",
+      "<p>",
+      "Address:{{adress}}",
+      "</p>",
+      "<p>",
+      "Imię: ",
+      "</p>",
+      "<input>",
+      "<p>",
+      "Nazwisko: ",
+      "</p>",
+      "<input>",
+      "<p>",
+      "Address: ",
+      "</p>",
+      "<input>"
+    ],
+    "description": "Adds basic binding html structure"
+  },
+  "row structure": {
+    "prefix": "meet-row-structure",
+    "body": [
+      "<div class=\"page-header\">",
+      "<h3>{{title}}</h3>",
+      "</div>",
+      "<div class=\"row\">",
+      "<strong>Imię i nazwisko:</strong> {{name}} {{surname}} <strong>Adres:</strong> {{address}}",
+      "</div>",
+      "<div class=\"row\">",
+      "Imię: <input [value]=\"name\">",
+      "</div>",
+      "<div class=\"row\">",
+      "Nazwisko: <input #inputSurname [value]=\"surname\" (keyup)=\"surname = inputSurname.value\">",
+      "</div>",
+      "<div class=\"row\">",
+      "Adres: <input [(ngModel)]=\"address\">",
+      "</div>"
+    ],
+    "description": "Adds row html structure"
+  },
+  "bootsrap row structure": {
+    "prefix": "meet-bootstrap-row-structure",
+    "body": [
+      "<div class=\"page-header\">",
+      "<h3>{{title}}</h3>",
+      "</div>",
+      "<div class=\"row\">",
+      "<div class=\"col-md-12\">",
+      "<strong>Imię i nazwisko:</strong> {{name}} {{surname}} <strong>Adres:</strong> {{address}}",
+      "</div>",
+      "</div>",
+      "<div class=\"row form-inline\">",
+      "<div class=\"col-md-3\">",
+      "Imię: <input [value]=\"name\">",
+      "</div>",
+      "<div class=\"col-3\">",
+      "Nazwisko: <input #inputSurname [value]=\"surname\" (keyup)=\"surname = inputSurname.value\">",
+      "</div>",
+      "</div>",
+      "<div class=\"row\">",
+      "<div class=\"col-md-6\">",
+      "Adres: <input [(ngModel)]=\"address\">",
+      "</div>",
+      "</div>"
+    ],
+    "description": "Adds bootstrap row html structure"
+  },
+  "selected user structure": {
+    "prefix": "meet-select-user-stucture",
+    "body": [
+      "<div $if class=\"row\">",
+      "<p><strong>Selected user:</strong> $binding</p>",
+      "</div>"
+    ],
+    "description": "Adds selected user html structure"
+  },
+  "user details structure": {
+    "prefix": "meet-user-details",
+    "body": [
+      "<div class=\"row\">",
+      "<div class=\"col-md-6\">",
+      "<div class=\"panel panel-primary\">",
+      "<div class=\"panel-heading\">{{user.userName}} details!</div>",
+      "<div class=\"panel-body\">",
+      "<div>",
+      "<label>Login: </label> {{user.login}}",
+      "</div>",
+      "<div class=\"form-inline\">",
+      "<label>Name: </label>",
+      "<input [(ngModel)]=\"user.name\" placeholder=\"Name\" class=\"form-control\" />",
+      "</div>",
+      "<div style=\"padding-top: 10px\">",
+      "<button (click)=\"delete(user.id); user.login=''; user.userName='';\" class=\"btn btn-danger\">Delete</button>",
+      "</div>",
+      "</div>",
+      "</div>",
+      "</div>",
+      "</div>"
+    ],
+    "description": "Adds user details html structure"
+  },
+  "user grid structure": {
+    "prefix": "meet-user-grid-structure",
+    "body": [
+      "<h4>User list</h4>",
+      "<div class=\"row\">",
+      "<table class=\"table table-bordered\">",
+      "<thead>",
+      "<tr>",
+      "<td>Id</td>",
+      "<th>Login</th>",
+      "<th>Name</th>",
+      "</tr>",
+      "</thead>",
+      "<tbody>",
+      "<tr *for*>",
+      "<td>{{user.id}}</td>",
+      "<td>{{user.login}}</td>",
+      "<td>{{user.name}}</td>",
+      "</tr>",
+      "</tbody>",
+      "</table>",
+      "</div>"
+    ],
+    "description": "Adds user grid html structure"
+  },
+  "add user structure": {
+    "prefix": "meet-add-user-structure",
+    "body": [
+      "<div class=\"row form-inline\">",
+      "<div class=\"col-md-12\">",
+      "<label>Login: </label><input [(ngModel)]=\"login\" class=\"form-control\" />",
+      "<label>Name: </label><input [(ngModel)]=\"name\" class=\"form-control\" />",
+      "<button (click)=\"add()\" class=\"btn btn-primary\">Add</button>",
+      "</div>",
+      "</div>"
+    ],
+    "description": "Adds add user html structure"
+  }
+}

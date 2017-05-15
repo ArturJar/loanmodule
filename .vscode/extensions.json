@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "eg2.tslint",
+    "johnpapa.Angular2",
+    "msjsdiag.debugger-for-chrome",
+    "rebornix.project-snippets",
+    "robertohuertasm.vscode-icons",
+    "christian-kohler.path-intellisense"
+  ]
+}

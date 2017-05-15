@@ -1,0 +1,15 @@
+{
+  "selected user structure": {
+    "prefix": "meet-style-css",
+    "body": [
+      "div.row {",
+      "border: 1px solid;",
+      "border-radius: 15px;",
+      "border-color: darkgrey;",
+      "padding: 20px;",
+      "margin: 5px;",
+      "}"
+    ],
+    "description": "Adds selected user html structure"
+  }
+}

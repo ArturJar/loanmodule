@@ -1,0 +1,22 @@
+<h4>User list</h4>
+<app-add-user></app-add-user>
+<div *ngIf="users; else loading" class="row">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <td>Id</td>
+        <th>Login</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users" [ngClass]="{ active: (selectedUser && user.id === selectedUser.id) }" (click)="selectUser(user)">
+        <td>{{user.id}}</td>
+        <td>{{user.login}}</td>
+        <td>{{user.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #loading>Loading...</ng-template>
+<app-user-details *ngIf="selectedUser" [user]="selectedUser" (deleteUserHandler)="handleDeleteUser()"></app-user-details>
